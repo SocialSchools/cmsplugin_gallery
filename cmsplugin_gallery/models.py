@@ -71,4 +71,4 @@ class Image(Orderable):
 
 @receiver(post_save, sender=Image)
 def generate_thumbnails_async(sender, instance=None, created=None,**kwargs):
-    generate_thumbnails.delay(instance.src)
+    generate_thumbnails(instance.src)
